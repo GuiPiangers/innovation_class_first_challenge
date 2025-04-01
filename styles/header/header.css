@@ -1,4 +1,4 @@
-.header_alert {
+.header-alert {
     font-family: "Nunito Sans", "sans-serif";
     font-size: 14px;
     font-weight: 700;
@@ -8,9 +8,10 @@
     text-align: center;
 }
 
-.header_alert__emphasis {
+.header-alert__emphasis {
     background-color: var(--emphasis_color);
     color: #fff;
     padding: 2px 4px;
     border-radius: 4px;
 }
+
