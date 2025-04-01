@@ -1,0 +1,12 @@
+.box-container {
+    display: flex;
+    align-items: center;
+}
+.box--small {
+    width: 100%;
+    max-width: 1177px;
+}
+.box {
+    width: 100%;
+    max-width: 1280px;
+}

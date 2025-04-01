@@ -1,4 +1,5 @@
 @import "./header/header.css";
+@import "./ui/box.css";
 
 :root {
     --main_color: #005CFF;
