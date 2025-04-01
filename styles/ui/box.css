@@ -1,6 +1,7 @@
 .box-container {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 .box--small {
     width: 100%;
