@@ -3,16 +3,22 @@
     justify-content: center;
     width: 100%;
 }
+
+.box, .box--small {
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
 .box--small {
     width: 100%;
     max-width: 1177px;
 }
 .box {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1280px;  
 }
 
 .box--columns {
     display: flex;
-    gap: 40px;
+    gap: 18PX;
 }
