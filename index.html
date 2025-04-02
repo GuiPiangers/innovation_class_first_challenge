@@ -12,31 +12,40 @@
     <title>LP Avanti</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="header-alert">
             Ganhe <span class="header-alert__emphasis">R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <span class="font--thin">DESCONTO10</span>
         </div>
 
-        <div class="box-container header-middle">
-           <div class="box header__logo-and-search-container">
-               <img src="./public/images/logo.svg"></img>
-               <div class="input__container">
-                <input class="input" type="text" placeholder="Digite aqui o que você procura">
-                <img src="./public/images/search.svg" alt="Pesquisar">
-            </div>
+        <div class="box-container">
+           <div class="box header-middle">
+               <div class="header__logo-and-search-container">
+                   <img src="./public/images/logo.svg"></img>
+                   <div class="input__container">
+                        <input class="input" type="text" placeholder="Digite aqui o que você procura">
+                        <img src="./public/images/search.svg" alt="Pesquisar">
+                    </div>
+                </div>
+
+                <div class="header__user-and-shop-container">
+                    <div class="header__user">
+                        <img src="./public/images/user.svg" alt="Usuário">
+                        <span>Olá, <br>Nome cliente!</span>
+                    </div>
+                    <div class="shop-card-container">
+                        <img class="shop-card" src="./public/images/shop.svg" alt="Carrinho">
+                        <div class="shop-card__notification">2</div>
+                    </div>
+                </div>
+           </div>
         </div>
 
-        <div class="header__user-and-shop-container">
-            <div class="header__user">
-                <img src="./public/images/user.svg" alt="Usuário">
-                <span>Olá, <br>Nome cliente!</span>
-            </div>
-            <div class="shop-card-container">
-                <img class="shop-card" src="./public/images/shop.svg" alt="Carrinho">
-                <div class="shop-card__notification">2</div>
-            </div>
+        <div class="box-container">        
+            <ul class="box">
+                <li>Todas as categorias</li>
+            </ul>
         </div>
-        </div>
+
     </header>
 
     <main>
