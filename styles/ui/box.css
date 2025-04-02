@@ -11,3 +11,8 @@
     width: 100%;
     max-width: 1280px;
 }
+
+.box--columns {
+    display: flex;
+    gap: 40px;
+}
