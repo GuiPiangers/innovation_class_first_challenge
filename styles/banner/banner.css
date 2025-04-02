@@ -1,0 +1,38 @@
+.banner {
+    display: flex;
+    justify-content: center;
+    background-color: #E7E7EA;
+    height: 510px;
+}
+
+.banner__image {
+    height: 510px;
+    width: auto;
+    object-fit: cover;        
+}
+
+.banner__title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    height: 100%;
+}
+
+.banner__title {
+    font-size: 100px;
+    padding: 0px;
+}
+.banner__subtitle-description {
+    padding: 0px;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 8px;
+}
+.banner__subtitle-discount {
+    text-align: center;
+    font-size: 60px;
+ 
+}
