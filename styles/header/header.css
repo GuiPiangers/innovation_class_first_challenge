@@ -15,3 +15,35 @@
     border-radius: 4px;
 }
 
+.header-middle {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 17px 0px 23px 0px;
+}
+
+.header__logo-and-search-container {
+    display: flex;
+    gap: 65px;
+}
+
+.header__user-and-shop-container {
+   display:  flex;
+   gap: 24px;
+   align-items: center;
+}
+
+.header__user {
+    line-height: 1;
+    display:  flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;    
+}
+
+.header__user > img {
+    height: 24px;
+    width: 24px;
+}
+

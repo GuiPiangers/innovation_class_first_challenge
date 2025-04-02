@@ -1,5 +1,8 @@
 @import "./header/header.css";
+@import "./header/shopCard.css";
 @import "./ui/box.css";
+@import "./ui/text.css";
+@import "./ui/input.css";
 
 :root {
     --main_color: #005CFF;

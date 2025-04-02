@@ -1,0 +1,26 @@
+.input__container {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    max-width: 594px;
+    padding: 9px 16px;
+    border: 1px solid #DDDD;
+    border-radius: 8px;
+}
+
+.input__container:has(.input:focus) {
+    outline: 1px solid;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    
+}
+
+.input::placeholder {
+    color: #000;
+    
+}
