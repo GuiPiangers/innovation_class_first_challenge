@@ -1,0 +1,13 @@
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    padding: 2px 24px;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: var(--main_color)
+}
