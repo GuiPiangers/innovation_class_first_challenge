@@ -4,10 +4,13 @@
 @import "./banner/banner.css";
 @import "./aboutProduct/aboutProduct.css";
 @import "./location/location.css";
+@import "./newsletter/newsletter.css";
 @import "./cta/cta.css";
 @import "./ui/box.css";
 @import "./ui/text.css";
 @import "./ui/input.css";
+@import "./ui/link.css";
+@import "./ui/button.css";
 
 :root {
     --main_color: #005CFF;
@@ -19,6 +22,7 @@
     font-family: "Nunito", "sans-serif";
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 body {

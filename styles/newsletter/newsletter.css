@@ -1,0 +1,26 @@
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px
+}
+
+.newsletter__title {
+    font-size: 20px;
+}
+
+.newsletter__form {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    padding: 64px 114px;
+    border-radius: 8px;
+    background-color: #DEDEDE;
+}
+
+.newsletter__accept-policy{
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+    color: #656565
+}
