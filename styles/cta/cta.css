@@ -1,3 +1,23 @@
 .cta {
-    /* background-image: ; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(../../public/images/terceiro-banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 660px;
+    width: 100%;
+}
+
+.cta__text {
+    height: 132px;
+    width: 100%;
+    background-color: var(--main_color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
