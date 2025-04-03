@@ -34,3 +34,11 @@
     height: 45px;
     width: 45px;
 }
+
+.location__image {
+    object-fit: cover;
+    object-position: center;
+    height: 728px;
+    width: 652px;
+    padding: 40px 0px;
+}
