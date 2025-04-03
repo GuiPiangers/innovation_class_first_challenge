@@ -1,6 +1,11 @@
 .header {
+    position: sticky;
     display: flex;
     flex-direction: column;
+    z-index: 10; 
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.1);
+    background-color: #fff;
+    top: 0px;
 }
 
 .header-alert {

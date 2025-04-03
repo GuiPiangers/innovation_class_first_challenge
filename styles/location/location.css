@@ -1,0 +1,36 @@
+.location {
+    background-color: #DEDEDE;
+    margin: 48px 0px;
+    color: #4F4F4F;
+}
+
+.location__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.location__item {
+    display: grid;
+    grid-template-columns: 90px auto;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.location__icon {
+    height: 90px;
+    width: 90px;
+    display: flex;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main_color);
+    flex-shrink: 0;
+}
+
+.location__icon img {
+    height: 45px;
+    width: 45px;
+}

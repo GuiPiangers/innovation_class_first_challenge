@@ -22,3 +22,8 @@
     display: flex;
     gap: 18PX;
 }
+
+.box--lines {
+    display: flex;
+    flex-direction: column;
+}

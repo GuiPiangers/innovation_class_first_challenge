@@ -3,6 +3,8 @@
 @import "./header/navigation.css";
 @import "./banner/banner.css";
 @import "./aboutProduct/aboutProduct.css";
+@import "./location/location.css";
+@import "./cta/cta.css";
 @import "./ui/box.css";
 @import "./ui/text.css";
 @import "./ui/input.css";
