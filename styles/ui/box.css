@@ -17,6 +17,10 @@
     width: 100%;
     max-width: 1280px;  
 }
+.box--large {
+    width: 100%;
+    max-width: 1320px;  
+}
 
 .box--columns {
     display: flex;

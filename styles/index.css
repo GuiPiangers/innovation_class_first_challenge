@@ -5,6 +5,8 @@
 @import "./aboutProduct/aboutProduct.css";
 @import "./location/location.css";
 @import "./newsletter/newsletter.css";
+@import "./products/products.css";
+@import "./card/card.css";
 @import "./cta/cta.css";
 @import "./ui/box.css";
 @import "./ui/text.css";
@@ -34,22 +36,4 @@ main {
     height: 100%;
     width: 100%;
 }
-
-
-/* .nunito-sans {
-    font-family: "Nunito Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100,
-      "YTLC" 500;
-}
-
-.nunito {
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-} */
 

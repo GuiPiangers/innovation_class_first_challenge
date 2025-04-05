@@ -1,0 +1,19 @@
+.products {
+    margin: 64px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.products__header {
+    padding: 0px 30px;
+    display: flex;
+    gap:20px;
+    justify-content: space-between;
+}
+
+.products__show-more {
+    color: #303030;
+    font-weight: 600;
+}
