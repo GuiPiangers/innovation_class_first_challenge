@@ -1,0 +1,38 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.footer__links-container__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer__links-container{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    align-items: center;
+    padding: 64px 0px;
+    background-color: #F5F5F5;
+
+}
+
+.footer__links-container__column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer__links {
+    color: #303030;
+    line-height: 24px;
+}
+
+.footer__link {
+    font-weight: 400;
+}

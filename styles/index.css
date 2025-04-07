@@ -13,6 +13,8 @@
 @import "./ui/input.css";
 @import "./ui/link.css";
 @import "./ui/button.css";
+@import "./footer/footer.css";
+@import "./popover/popover.css";
 
 :root {
     --main_color: #005CFF;

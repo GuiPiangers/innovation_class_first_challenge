@@ -4,6 +4,7 @@
     list-style: none;
     margin: 0px 0px 18px 0px;
     padding: 0px;
+    position: relative;
 }
 .nav-list .nav-item:first-child {
     padding-left: 0px;
@@ -29,3 +30,139 @@
 .nav-all-category {
     font-weight: 700;
 }
+
+
+
+.popover {
+    display: flex;
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 0;
+    width: 1000px;
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+    gap: 20px;
+    border-radius: 4px;
+
+    max-height: 329px;
+    overflow: hidden;
+}
+
+.popover > *{
+    padding: 20px;
+}
+
+.popover::-webkit-scrollbar {
+    width: 6px;               /* largura da barra vertical */
+    height: 6px;              /* altura da barra horizontal (se necessário) */
+  }
+  
+  .popover::-webkit-scrollbar-track {
+    background: transparent;  /* fundo da trilha da scroll */
+  }
+  
+  .popover::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;   /* cor da alça */
+    border-radius: 10px;         /* bordas arredondadas */
+  }
+  
+  .popover::-webkit-scrollbar-thumb:hover {
+    background-color: #a8a8a8;   /* cor ao passar o mouse */
+  }
+  
+  /* Para Firefox */
+  .popover {
+    scrollbar-width: thin;           /* fino */
+    scrollbar-color: #c1c1c1 transparent;  /* alça e trilha */
+  }
+
+.menu-container:hover .popover {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+.menu__title {
+    color: #0071e3;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu__list__departments {
+    background-color: #F5F5F5;
+    overflow-y: auto;
+    min-width: 234px;
+}
+
+.menu__list__departments li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px
+}
+
+.menu__list li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+}
+
+.menu__list li svg  *{
+    fill: currentColor
+}
+
+.menu__list li:hover {
+    color: var(--main_color);
+}
+
+.menu__list__item.--selected {
+    font-weight: 600;
+    color: var(--main_color);
+}
+
+.menu__image {
+    background-image: url('https://via.placeholder.com/150'); /* Substitua pela imagem real */
+    background-size: cover;
+    background-position: center;
+    height: 240px;
+    width: 160px;
+    padding: 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu__image p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.menu__image button {
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: white;
+    color: #000;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+  

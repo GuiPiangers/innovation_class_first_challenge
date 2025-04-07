@@ -38,6 +38,10 @@
     text-decoration: line-through;
 }
 
+.text--center {
+    text-align: center;
+}
+
 .nunito-sans {
     font-family: "Nunito Sans", sans-serif;
     font-optical-sizing: auto;
