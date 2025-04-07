@@ -1,5 +1,7 @@
 const menuItens = Array.from(document.getElementsByClassName("menu__list__item"))
 const menuCategories = document.getElementById("menu-categories")
+const mainMenuToggleButton = document.getElementById("main_menu_toggle_bt")
+const mainMenuElement = document.getElementById("main_menu")
 
 const defaultMenuCategories = {
     subcategory1: [
@@ -96,40 +98,48 @@ const defaultMenuCategories = {
 
 
 class Menu {
-    departamentsStruct = {
-        departament1: defaultMenuCategories,
-        departament2: defaultMenuCategories,
-        departament3: defaultMenuCategories,
-        departament4: defaultMenuCategories,
-        departament5: defaultMenuCategories,
-        departament6: defaultMenuCategories,
-        departament7: defaultMenuCategories,
-        departament8: defaultMenuCategories,
-        departament9: defaultMenuCategories,
-        departament10: defaultMenuCategories,
+    departmentsStruct = {
+        department1: defaultMenuCategories,
+        department2: defaultMenuCategories,
+        department3: defaultMenuCategories,
+        department4: defaultMenuCategories,
+        department5: defaultMenuCategories,
+        department6: defaultMenuCategories,
+        department7: defaultMenuCategories,
+        department8: defaultMenuCategories,
+        department9: defaultMenuCategories,
+        department10: defaultMenuCategories
     }
     
-    selectedDepartament = "departament1"
+    selectedDepartment = "department1"
+    isOpen = false
 
-    setSelectedDepartament(item) {
-        this.selectedDepartament = item
+    toggle(){
+        this.isOpen = !this.isOpen
+        setElementVisible(mainMenuElement, !this.isOpen)
     }
 
-    getDepartamentStruct() {
-        return this.departamentsStruct[this.selectedDepartament]
+    setSelectedDepartment(item) {
+        this.selectedDepartment = item
+        setActiveDepartmentStyle(this)
+        renderCategories(this)
+    }
+
+    getDepartmentStruct() {
+        return this.departmentsStruct[this.selectedDepartment]
     }
 }
 
 
 function renderCategories(menu) {
-    const categoriesHTML = Object.entries(menu.getDepartamentStruct()).reduce((acc, [key, value])=>{
+    const categoriesHTML = Object.entries(menu.getDepartmentStruct()).reduce((acc, [key, value])=>{
         const itens = value.reduce((acc, item) => {
             return acc + `<li>${item.name}</li>`
         }, "")
 
         return acc + `
             <div class="col menu__category">
-                <h4 class="menu__title">${key}</h4>
+                <h4 class="menu__title">${"Categoria"}</h4>
                 <ul class="menu__list">
                     ${itens}
                 </ul>
@@ -140,16 +150,35 @@ function renderCategories(menu) {
     menuCategories.innerHTML = categoriesHTML
 }
 
-const menu = new Menu()
-renderCategories(menu)
+function setActiveDepartmentStyle(menu){
+    menuItens.forEach(menuItem => {
+        menuItem.classList.remove("--selected")
+
+        if(menuItem.getAttribute("id") === menu.selectedDepartment){
+            menuItem.classList.add("--selected")
+        }
+    });
+}
+
+function setElementVisible(element, isVisible){
+    if(isVisible) {
+
+        element.classList.add("--hidden")
+    } else {
+        element.classList.remove("--hidden")
+    }
+}
+
+const mainMenu = new Menu()
+renderCategories(mainMenu)
 
 menuItens.forEach(menuItem => {
-    console.log(menuItem)
     menuItem.addEventListener("click", (e) => {
-        menuItens.forEach(element => {
-            element.classList.remove("--selected")
-        });
-
-        menuItem.classList.add("--selected")
+        const selectedElement = e.currentTarget.getAttribute("id")
+        mainMenu.setSelectedDepartment(selectedElement)
     })
 });
+
+mainMenuToggleButton.addEventListener("click", (e)=>{
+    mainMenu.toggle()
+})

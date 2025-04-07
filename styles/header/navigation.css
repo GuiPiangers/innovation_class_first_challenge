@@ -137,7 +137,7 @@
 }
 
 .menu__list__item.--selected {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--main_color);
 }
 
@@ -175,5 +175,9 @@
     font-size: 12px;
     cursor: pointer;
     border-radius: 4px;
+}
+
+.--hidden {
+    display: none;
 }
   
