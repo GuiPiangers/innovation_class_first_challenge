@@ -38,7 +38,7 @@
     position: absolute;
     top: calc(100% + 16px);
     left: 0;
-    width: 1000px;
+    width: 100%;
     background: #fff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10;
@@ -81,6 +81,17 @@
 .menu-container:hover .popover {
     display: flex;
 }
+
+.menu__categories {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.menu__category {
+    max-width: 140px;
+}
+
 
 .col {
     flex: 1;
