@@ -104,15 +104,36 @@ class Menu {
     }
     
     toggle(){
-        this.#setElementVisible(this.isOpen)
         this.isOpen = !this.isOpen
+        this.#setElementVisible(this.isOpen)
     }
     
+    close(){
+        this.#setElementVisible(false)
+        this.isOpen = false
+    }
+
     #setElementVisible(isVisible){
-        if(isVisible) {
+        const closeOnClickOut = (e) => {
+            if(!this.#popover.contains(e.target)){
+                this.close()
+                document.removeEventListener("click", closeOnClickOut)
+            }
+        }
+
+        const closeOnEsq = (e) => {
+            if(e.code === "Escape"){
+                this.close()
+                document.removeEventListener("keyDown", closeOnEsq)
+            }
+        }
+
+        if(!isVisible) {
             this.#popover.classList.add("--hidden")
         } else {
             this.#popover.classList.remove("--hidden")
+            document.addEventListener("click", closeOnClickOut)
+            document.addEventListener("keydown", closeOnEsq)
         }
     }
 }
@@ -196,5 +217,6 @@ class MainMenu extends Menu {
 const mainMenu = new MainMenu(mainMenuElement)
 
 mainMenuToggleButton.addEventListener("click", (e)=>{
+    e.stopPropagation()
     mainMenu.toggle()
 })
