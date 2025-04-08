@@ -153,14 +153,14 @@ class MainMenu extends Menu {
         department10: defaultMenuCategories
     }
 
-    #menuCategories = null
+    #menuCategoriesElement = null
     selectedDepartment = "department1"
     isOpen = false
-    #menuItens = null
+    #menuItensElements = null
 
     constructor(popover) {
         super(popover)
-        this.#menuCategories = popover.getElementsByClassName("menu__categories")[0]
+        this.#menuCategoriesElement = popover.getElementsByClassName("menu__categories")[0]
         this.#renderCategories()
         
         const menuItens = Array.from(popover.getElementsByClassName("menu__list__item"))
@@ -172,7 +172,7 @@ class MainMenu extends Menu {
             })
         });
 
-        this.#menuItens = menuItens
+        this.#menuItensElements = menuItens
     }
 
     setSelectedDepartment(item) {
@@ -202,10 +202,10 @@ class MainMenu extends Menu {
             `
         }, "")
     
-        this.#menuCategories.innerHTML = categoriesHTML
+        this.#menuCategoriesElement.innerHTML = categoriesHTML
     }
     #setActiveDepartmentStyle(menu){
-        this.#menuItens.forEach(menuItem => {
+        this.#menuItensElements.forEach(menuItem => {
             menuItem.classList.remove("--selected")
     
             if(menuItem.getAttribute("id") === menu.selectedDepartment){
@@ -215,7 +215,42 @@ class MainMenu extends Menu {
     }
 }
 
+class DepartmentMenu extends Menu {
+    #categoriesStruct = {}
+    #categoryContainerElement = null
+
+    constructor(popover, categoriesStruct) {
+        super(popover)
+        this.#categoriesStruct = categoriesStruct
+        this.#categoryContainerElement = popover.getElementsByClassName("popover-department__container")[0]
+        this.#renderCategories()
+    }
+
+    #renderCategories(){
+        const categoriesHTML = `<div class="menu__categories">` + 
+            Object.entries(this.#categoriesStruct).reduce((acc, [key, value])=>{
+                const itens = value.reduce((acc, item) => {
+                    return acc + `<li><a class="menu__category__link" href="${item.href}">${item.name}</a></li>`
+                }, "")
+        
+                return acc + `
+                        <div class="col menu__category">
+                            <h4 class="menu__title">${"Categoria"}</h4>
+                            <ul class="menu__list">
+                                ${itens}
+                            </ul>
+                        </div>
+                    </div>
+                `
+            }, "")
+        + `</div>`
+                
+        this.#categoryContainerElement.innerHTML = '<h3 class="font--regular font--bold">Departamento</h3>' + categoriesHTML
+    }
+}
+
 const mainMenu = new MainMenu(mainMenuElement)
+const departmentMenu = new DepartmentMenu(departmentMenuElement, defaultMenuCategories)
 
 mainMenuToggleButton.addEventListener("click", (e)=>{
     e.stopPropagation()
