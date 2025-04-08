@@ -240,10 +240,11 @@ class DepartmentMenu extends Menu {
                                 ${itens}
                             </ul>
                         </div>
-                    </div>
                 `
             }, "")
         + `</div>`
+
+        console.log(categoriesHTML)
                 
         this.#categoryContainerElement.innerHTML = '<h3 class="font--regular font--bold">Departamento</h3>' + categoriesHTML
     }
