@@ -19,6 +19,7 @@
 :root {
     --main_color: #005CFF;
     --emphasis_color: #6220C1;
+    --main_hover_color: #004CD2
 }
 
 * {
