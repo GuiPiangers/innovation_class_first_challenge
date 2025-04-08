@@ -1,5 +1,3 @@
-const menuItens = Array.from(document.getElementsByClassName("menu__list__item"))
-const menuCategories = document.getElementById("menu-categories")
 const mainMenuToggleButton = document.getElementById("main_menu_toggle_bt")
 const mainMenuElement = document.getElementById("main_menu")
 
@@ -98,7 +96,29 @@ const defaultMenuCategories = {
 
 
 class Menu {
-    departmentsStruct = {
+    #popover = null
+    isOpen = false
+
+    constructor(popover) {
+        this.#popover = popover
+    }
+    
+    toggle(){
+        this.#setElementVisible(this.isOpen)
+        this.isOpen = !this.isOpen
+    }
+    
+    #setElementVisible(isVisible){
+        if(isVisible) {
+            this.#popover.classList.add("--hidden")
+        } else {
+            this.#popover.classList.remove("--hidden")
+        }
+    }
+}
+
+class MainMenu extends Menu {
+    #departmentsStruct = {
         department1: defaultMenuCategories,
         department2: defaultMenuCategories,
         department3: defaultMenuCategories,
@@ -110,74 +130,70 @@ class Menu {
         department9: defaultMenuCategories,
         department10: defaultMenuCategories
     }
-    
+
+    #menuCategories = null
     selectedDepartment = "department1"
     isOpen = false
+    #menuItens = null
 
-    toggle(){
-        this.isOpen = !this.isOpen
-        setElementVisible(mainMenuElement, !this.isOpen)
+    constructor(popover) {
+        super(popover)
+        this.#menuCategories = popover.getElementsByClassName("menu__categories")[0]
+        this.#renderCategories()
+        
+        const menuItens = Array.from(popover.getElementsByClassName("menu__list__item"))
+
+        menuItens.forEach(menuItem => {
+            menuItem.addEventListener("click", (e) => {
+                const selectedElement = e.currentTarget.getAttribute("id")
+                mainMenu.setSelectedDepartment(selectedElement)
+            })
+        });
+
+        this.#menuItens = menuItens
     }
 
     setSelectedDepartment(item) {
         this.selectedDepartment = item
-        setActiveDepartmentStyle(this)
-        renderCategories(this)
+        this.#setActiveDepartmentStyle(this)
+        this.#renderCategories()
     }
 
-    getDepartmentStruct() {
-        return this.departmentsStruct[this.selectedDepartment]
+
+    #getDepartmentStruct() {
+        return this.#departmentsStruct[this.selectedDepartment]
     }
-}
 
-
-function renderCategories(menu) {
-    const categoriesHTML = Object.entries(menu.getDepartmentStruct()).reduce((acc, [key, value])=>{
-        const itens = value.reduce((acc, item) => {
-            return acc + `<li><a class="menu__category__link" href="${item.href}">${item.name}</a></li>`
+    #renderCategories() {
+        const categoriesHTML = Object.entries(this.#getDepartmentStruct()).reduce((acc, [key, value])=>{
+            const itens = value.reduce((acc, item) => {
+                return acc + `<li><a class="menu__category__link" href="${item.href}">${item.name}</a></li>`
+            }, "")
+    
+            return acc + `
+                <div class="col menu__category">
+                    <h4 class="menu__title">${"Categoria"}</h4>
+                    <ul class="menu__list">
+                        ${itens}
+                    </ul>
+                </div>
+            `
         }, "")
-
-        return acc + `
-            <div class="col menu__category">
-                <h4 class="menu__title">${"Categoria"}</h4>
-                <ul class="menu__list">
-                    ${itens}
-                </ul>
-            </div>
-        `
-    }, "")
-
-    menuCategories.innerHTML = categoriesHTML
-}
-
-function setActiveDepartmentStyle(menu){
-    menuItens.forEach(menuItem => {
-        menuItem.classList.remove("--selected")
-
-        if(menuItem.getAttribute("id") === menu.selectedDepartment){
-            menuItem.classList.add("--selected")
-        }
-    });
-}
-
-function setElementVisible(element, isVisible){
-    if(isVisible) {
-
-        element.classList.add("--hidden")
-    } else {
-        element.classList.remove("--hidden")
+    
+        this.#menuCategories.innerHTML = categoriesHTML
+    }
+    #setActiveDepartmentStyle(menu){
+        this.#menuItens.forEach(menuItem => {
+            menuItem.classList.remove("--selected")
+    
+            if(menuItem.getAttribute("id") === menu.selectedDepartment){
+                menuItem.classList.add("--selected")
+            }
+        });
     }
 }
 
-const mainMenu = new Menu()
-renderCategories(mainMenu)
-
-menuItens.forEach(menuItem => {
-    menuItem.addEventListener("click", (e) => {
-        const selectedElement = e.currentTarget.getAttribute("id")
-        mainMenu.setSelectedDepartment(selectedElement)
-    })
-});
+const mainMenu = new MainMenu(mainMenuElement)
 
 mainMenuToggleButton.addEventListener("click", (e)=>{
     mainMenu.toggle()
