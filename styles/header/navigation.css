@@ -126,11 +126,16 @@ scrollbar-color: #c1c1c1 transparent;
     min-width: 234px;
 }
 
-.menu__list__departments li {
-    padding: 6px 0;
+.menu__list__departments .menu__list__item {
     display: flex;
     justify-content: space-between;
-    gap: 16px
+    gap: 16px;
+    align-items: center;;
+    padding: 6px 0;
+    border: none;
+    background-color: transparent;
+    width: 100%
+
 }
 
 .menu__list li {
