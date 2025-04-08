@@ -34,7 +34,6 @@
 
 
 .popover {
-    display: flex;
     position: absolute;
     top: calc(100% + 16px);
     left: 0;
@@ -55,28 +54,34 @@
 }
 
 .popover::-webkit-scrollbar {
-    width: 6px;               /* largura da barra vertical */
-    height: 6px;              /* altura da barra horizontal (se necessário) */
+    width: 2px;               /* largura da barra vertical */
+    height: 6px;             
   }
   
-  .popover::-webkit-scrollbar-track {
-    background: transparent;  /* fundo da trilha da scroll */
-  }
-  
-  .popover::-webkit-scrollbar-thumb {
-    background-color: #c1c1c1;   /* cor da alça */
-    border-radius: 10px;         /* bordas arredondadas */
-  }
-  
-  .popover::-webkit-scrollbar-thumb:hover {
-    background-color: #a8a8a8;   /* cor ao passar o mouse */
-  }
-  
-  /* Para Firefox */
-  .popover {
-    scrollbar-width: thin;           /* fino */
-    scrollbar-color: #c1c1c1 transparent;  /* alça e trilha */
-  }
+.popover::-webkit-scrollbar-track {
+background: transparent;  
+}
+
+.popover::-webkit-scrollbar-thumb {
+background-color: #c1c1c1;   
+border-radius: 10px;     
+}
+
+.popover::-webkit-scrollbar-thumb:hover {
+background-color: #a8a8a8;   
+}
+
+.popover {
+scrollbar-width: thin;           
+scrollbar-color: #c1c1c1 transparent;  
+}
+
+.popover-department__container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
 
 .menu-container:hover .popover {
     display: flex;
