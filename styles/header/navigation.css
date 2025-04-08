@@ -17,6 +17,9 @@
     padding: 2px 24px;
     margin: 0px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 14px
 }
 
 .nav-item:hover {

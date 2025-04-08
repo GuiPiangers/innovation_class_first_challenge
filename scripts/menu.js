@@ -1,5 +1,6 @@
 const mainMenuToggleButton = document.getElementById("main_menu_toggle_bt")
 const mainMenuElement = document.getElementById("main_menu")
+const departmentMenuElement = document.getElementById("department_menu")
 
 const defaultMenuCategories = {
     subcategory1: [
