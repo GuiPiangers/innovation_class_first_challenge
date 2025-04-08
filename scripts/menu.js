@@ -134,7 +134,7 @@ class Menu {
 function renderCategories(menu) {
     const categoriesHTML = Object.entries(menu.getDepartmentStruct()).reduce((acc, [key, value])=>{
         const itens = value.reduce((acc, item) => {
-            return acc + `<li>${item.name}</li>`
+            return acc + `<li><a class="menu__category__link" href="${item.href}">${item.name}</a></li>`
         }, "")
 
         return acc + `
