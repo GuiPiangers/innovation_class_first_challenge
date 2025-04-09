@@ -1,3 +1,28 @@
+const popoverMenuContainer = document.querySelector('[data-menu="popover_container"]')
+
+function renderDepartmentsMenusAndTriggers(){
+        const popoverHTML = `
+            <div class="popover --hidden" data-menu="department_popover">
+                <div class="popover-department__container">
+                    // Data will be insert here
+                </div>
+                <div class="col destaque">
+                    <div class="menu__image">
+                        <p>Confira os <br>Produtos<strong><br>Que <br/>acabaram<br/>De chegar</strong></p>
+                        <button>VER TODOS</button>
+                    </div>
+                </div>
+            </div>`
+
+                    const departmentElements = new Array(8).fill(
+        `<li><button class="nav-item" data-toggle="department">Departamento</button></li>` + popoverHTML
+    )
+
+    popoverMenuContainer.insertAdjacentHTML("beforeend", departmentElements.join(""))
+}
+
+renderDepartmentsMenusAndTriggers()
+
 const mainMenuToggleButton = document.getElementById("main_menu_toggle_bt")
 const mainMenuElement = document.getElementById("main_menu")
 const departmentMenuElement = document.getElementById("department_menu")
@@ -264,6 +289,9 @@ class DepartmentMenu extends Menu {
 
 new MainMenu(mainMenuElement, [mainMenuToggleButton])
 
-departmentToggleMenuButtons.forEach(toggleButton => {
-    new DepartmentMenu(departmentMenuElement, departmentToggleMenuButtons, defaultMenuCategories)
+departmentToggleMenuButtons.forEach((toggleButton, index) => {
+        const departmentMenuElements = Array.from(document.querySelectorAll(`[data-menu="department_popover"]`))
+
+    new DepartmentMenu(departmentMenuElements[index], [toggleButton], defaultMenuCategories)
 })
+
