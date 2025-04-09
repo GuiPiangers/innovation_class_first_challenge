@@ -1,6 +1,7 @@
 @import "./header/header.css";
 @import "./header/shopCard.css";
 @import "./header/navigation.css";
+@import "./header/searchInput.css";
 @import "./banner/banner.css";
 @import "./aboutProduct/aboutProduct.css";
 @import "./location/location.css";
