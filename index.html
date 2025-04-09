@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
     <script src="scripts/swiper.js" type="module" ></script>
     <script src="scripts/menu.js" type="module" ></script>
+    <script src="scripts/search.js" type="module" ></script>
 
     <title>LP Avanti</title>
 </head>
@@ -33,8 +34,8 @@
                <div class="header__logo-and-search-container">
                    <img src="./public/images/logo.svg"></img>
                    <div class="input__container search__input-container">
-                        <input class="input" type="text" placeholder="Digite aqui o que você procura">
-                        <img src="./public/images/search.svg" alt="Pesquisar">
+                        <input class="input" type="text" placeholder="Digite aqui o que você procura" data-search="input">
+                        <button data-search="button"><img src="./public/images/search.svg" alt="Pesquisar"></button>
 
                         <div class="search__answer-container --hidden" data-search="answer">Sua resposta é</div>
                     </div>
