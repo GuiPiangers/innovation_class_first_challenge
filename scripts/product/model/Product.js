@@ -1,13 +1,21 @@
 export class Product{
+    id
     #price = 0
+    #quantity = 1
 
-    constructor({name, price}){
+    constructor({name, price, quantity, id}){
+        this.id = id
         this.name = name
         this.#price = price
+        this.#quantity = quantity || 1
     }
 
     getPrice() {
         return this.#price
+    }
+
+    getQuantity() {
+        return this.#quantity 
     }
 }
 
@@ -35,8 +43,14 @@ export class ProductCard{
     }
 
     getPrice(){
-        this.products.reduce(acc, product => {
-            return acc + product.getPrice()
+        return this.products.reduce(acc, product => {
+            return acc + (product.getPrice() * product.getQuantity())
+        }, 0)
+    }
+
+    getQuantity(){
+        return this.products.reduce(acc, product => {
+            return acc + product.getQuantity()
         }, 0)
     }
 }

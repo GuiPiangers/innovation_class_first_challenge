@@ -4,8 +4,9 @@ import { ProductCardRepository } from "../model/Product.repository"
 class ProductCardController {
     #productCardModel
 
-    constructor(productCardModel){
+    constructor(productCardModel, productCardView){
         this.#productCardModel = productCardModel
+        this.#productCardModel = productCardView
     }
 
     addProduct(product){

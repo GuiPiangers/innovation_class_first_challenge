@@ -63,4 +63,5 @@
     justify-content: space-between;
     background-color: transparent !important;
     color: #303030 !important;
+    max-height: 40px;
 }
