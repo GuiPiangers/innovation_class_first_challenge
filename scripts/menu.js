@@ -1,6 +1,7 @@
 const mainMenuToggleButton = document.getElementById("main_menu_toggle_bt")
 const mainMenuElement = document.getElementById("main_menu")
 const departmentMenuElement = document.getElementById("department_menu")
+const departmentToggleMenuButtons = Array.from(document.querySelectorAll('[data-toggle="department"]'))
 
 const defaultMenuCategories = {
     subcategory1: [
@@ -98,10 +99,14 @@ const defaultMenuCategories = {
 
 class Menu {
     #popover = null
+    #toggleElements = null
     isOpen = false
 
-    constructor(popover) {
+    constructor(popover, toggleElements) {
         this.#popover = popover
+        this.#toggleElements = toggleElements
+
+        this.#setToggleListener()
     }
     
     toggle(){
@@ -116,9 +121,10 @@ class Menu {
 
     #setElementVisible(isVisible){
         const closeOnClickOut = (e) => {
-            if(!this.#popover.contains(e.target)){
+            if(!this.#popover.contains(e.target) && (!this.#toggleElements.some(toggleElement => toggleElement.contains(e.target)))){
                 this.close()
                 document.removeEventListener("click", closeOnClickOut)
+                document.removeEventListener("keyDown", closeOnEsq)
             }
         }
 
@@ -126,6 +132,7 @@ class Menu {
             if(e.code === "Escape"){
                 this.close()
                 document.removeEventListener("keyDown", closeOnEsq)
+                document.removeEventListener("click", closeOnClickOut)
             }
         }
 
@@ -136,6 +143,14 @@ class Menu {
             document.addEventListener("click", closeOnClickOut)
             document.addEventListener("keydown", closeOnEsq)
         }
+    }
+
+    #setToggleListener(){
+        this.#toggleElements.forEach(toggleElement => {
+            toggleElement.addEventListener("click", (e)=>{
+                this.toggle()
+            })
+        })
     }
 }
 
@@ -158,17 +173,17 @@ class MainMenu extends Menu {
     isOpen = false
     #menuItensElements = null
 
-    constructor(popover) {
-        super(popover)
-        this.#menuCategoriesElement = popover.getElementsByClassName("menu__categories")[0]
+    constructor(popover, toggleElements) {
+        super(popover, toggleElements)
+        this.#menuCategoriesElement = popover.querySelector(".menu__categories")
         this.#renderCategories()
         
-        const menuItens = Array.from(popover.getElementsByClassName("menu__list__item"))
+        const menuItens = Array.from(popover.querySelectorAll(".menu__list__item"))
 
         menuItens.forEach(menuItem => {
             menuItem.addEventListener("click", (e) => {
                 const selectedElement = e.currentTarget.getAttribute("id")
-                mainMenu.setSelectedDepartment(selectedElement)
+                this.setSelectedDepartment(selectedElement)
             })
         });
 
@@ -180,7 +195,6 @@ class MainMenu extends Menu {
         this.#setActiveDepartmentStyle(this)
         this.#renderCategories()
     }
-
 
     #getDepartmentStruct() {
         return this.#departmentsStruct[this.selectedDepartment]
@@ -219,8 +233,8 @@ class DepartmentMenu extends Menu {
     #categoriesStruct = {}
     #categoryContainerElement = null
 
-    constructor(popover, categoriesStruct) {
-        super(popover)
+    constructor(popover, toggleElements, categoriesStruct) {
+        super(popover, toggleElements)
         this.#categoriesStruct = categoriesStruct
         this.#categoryContainerElement = popover.getElementsByClassName("popover-department__container")[0]
         this.#renderCategories()
@@ -244,16 +258,12 @@ class DepartmentMenu extends Menu {
             }, "")
         + `</div>`
 
-        console.log(categoriesHTML)
-                
         this.#categoryContainerElement.innerHTML = '<h3 class="font--regular font--bold">Departamento</h3>' + categoriesHTML
     }
 }
 
-const mainMenu = new MainMenu(mainMenuElement)
-const departmentMenu = new DepartmentMenu(departmentMenuElement, defaultMenuCategories)
+new MainMenu(mainMenuElement, [mainMenuToggleButton])
 
-mainMenuToggleButton.addEventListener("click", (e)=>{
-    e.stopPropagation()
-    mainMenu.toggle()
+departmentToggleMenuButtons.forEach(toggleButton => {
+    new DepartmentMenu(departmentMenuElement, departmentToggleMenuButtons, defaultMenuCategories)
 })

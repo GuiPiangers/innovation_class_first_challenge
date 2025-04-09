@@ -54,7 +54,7 @@
         <div class="box-container">        
             <ul class="box nav-list">
                 <li>
-                    <button class="nav-item nav-all-category" id="main_menu_toggle_bt">
+                    <button class="nav-item nav-all-category" id="main_menu_toggle_bt" data-toggle="main_menu">
                         <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line x1="1" y1="6" x2="13" y2="6" stroke="black" stroke-width="2" stroke-linecap="round"/>
                             <line x1="1" y1="11" x2="13" y2="11" stroke="black" stroke-width="2" stroke-linecap="round"/>
@@ -64,11 +64,11 @@
                     </button>
                 </li>
                 <li>
-                    <button class="nav-item">Departamento</button></li>
+                    <button class="nav-item" data-toggle="department">Departamento</button></li>
                 <li>
-                    <button class="nav-item">Departamento</button></li>
+                    <button class="nav-item" data-toggle="department">Departamento</button></li>
                 <li>
-                    <button class="nav-item">Departamento</button></li>
+                    <button class="nav-item" data-toggle="department">Departamento</button></li>
                             
                 <div class="popover --hidden" id="main_menu">
                     <div class="col departamento menu__list__departments">
@@ -204,7 +204,7 @@
                     </div>
                 </div>
                             
-                <div class="popover " id="department_menu">
+                <div class="popover --hidden" id="department_menu">
                     <div class="popover-department__container">
                         <h3 class="font--regular font--bold">Departamento</h3>
                         <div class="menu__categories">
