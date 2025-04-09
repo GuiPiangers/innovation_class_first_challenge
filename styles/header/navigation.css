@@ -137,14 +137,15 @@ scrollbar-color: #c1c1c1 transparent;
     padding: 6px 0;
     border: none;
     background-color: transparent;
-    width: 100%
+    width: 100%;
+    cursor: pointer;
+    color: currentColor
 
 }
 
 .menu__list li {
     font-size: 14px;
     color: #444;
-    cursor: pointer;
 }
 
 .menu__list li svg  *{
