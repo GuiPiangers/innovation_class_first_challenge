@@ -124,19 +124,25 @@ const defaultMenuCategories = {
 
 class Menu {
     #popover = null
-    #toggleElements = null
+    #toggleElement = null
     isOpen = false
 
     constructor(popover, toggleElements) {
         this.#popover = popover
-        this.#toggleElements = toggleElements
+        this.#toggleElement = toggleElements
 
         this.#setToggleListener()
     }
     
     toggle(){
         this.isOpen = !this.isOpen
-        this.#setElementVisible(this.isOpen)
+        if(this.isOpen) {
+            this.#setElementVisible(true)
+            this.#setElementCloseMethods()
+        }
+        else {
+            this.#setElementVisible(false)
+        }
     }
     
     close(){
@@ -144,9 +150,9 @@ class Menu {
         this.isOpen = false
     }
 
-    #setElementVisible(isVisible){
+    #setElementCloseMethods(){
         const closeOnClickOut = (e) => {
-            if(!this.#popover.contains(e.target) && (!this.#toggleElements.some(toggleElement => toggleElement.contains(e.target)))){
+            if(!this.#popover.contains(e.target) && (!this.#toggleElement.contains(e.target))){
                 this.close()
                 document.removeEventListener("click", closeOnClickOut)
                 document.removeEventListener("keyDown", closeOnEsq)
@@ -161,20 +167,29 @@ class Menu {
             }
         }
 
+        document.addEventListener("click", closeOnClickOut)
+        document.addEventListener("keydown", closeOnEsq)
+    }
+
+    #setSelectedToggleButton(isSelected){
+        if(isSelected) {
+            this.#toggleElement.classList.add("--hidden")
+        } else {
+            this.#popover.classList.remove("--hidden")
+        }
+    }
+
+    #setElementVisible(isVisible){
         if(!isVisible) {
             this.#popover.classList.add("--hidden")
         } else {
             this.#popover.classList.remove("--hidden")
-            document.addEventListener("click", closeOnClickOut)
-            document.addEventListener("keydown", closeOnEsq)
         }
     }
 
     #setToggleListener(){
-        this.#toggleElements.forEach(toggleElement => {
-            toggleElement.addEventListener("click", (e)=>{
-                this.toggle()
-            })
+        this.#toggleElement.addEventListener("click", (e)=>{
+            this.toggle()
         })
     }
 }
@@ -287,11 +302,11 @@ class DepartmentMenu extends Menu {
     }
 }
 
-new MainMenu(mainMenuElement, [mainMenuToggleButton])
+new MainMenu(mainMenuElement, mainMenuToggleButton)
 
 departmentToggleMenuButtons.forEach((toggleButton, index) => {
         const departmentMenuElements = Array.from(document.querySelectorAll(`[data-menu="department_popover"]`))
 
-    new DepartmentMenu(departmentMenuElements[index], [toggleButton], defaultMenuCategories)
+    new DepartmentMenu(departmentMenuElements[index], toggleButton, defaultMenuCategories)
 })
 
