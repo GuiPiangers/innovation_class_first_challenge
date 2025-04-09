@@ -6,6 +6,8 @@
     border: none;
     border-radius: 8px;
     transition: all 0.2s ease;
+    font-weight: 700;
+    max-height: 40px ;
 }
 
 .button--small {
