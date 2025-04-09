@@ -135,19 +135,21 @@ class Menu {
     }
     
     toggle(){
-        this.isOpen = !this.isOpen
-        if(this.isOpen) {
-            this.#setElementVisible(true)
-            this.#setElementCloseMethods()
-        }
-        else {
-            this.#setElementVisible(false)
-        }
+        if(!this.isOpen) return this.open()
+        this.close()
     }
     
     close(){
-        this.#setElementVisible(false)
         this.isOpen = false
+        this.#setElementVisible(false)
+        this.#setSelectedToggleButton(false)
+    }
+    
+    open(){
+        this.isOpen = true
+        this.#setElementVisible(true)
+        this.#setElementCloseMethods()
+        this.#setSelectedToggleButton(true)
     }
 
     #setElementCloseMethods(){
@@ -173,9 +175,9 @@ class Menu {
 
     #setSelectedToggleButton(isSelected){
         if(isSelected) {
-            this.#toggleElement.classList.add("--hidden")
+            this.#toggleElement.classList.add("font--color-main")
         } else {
-            this.#popover.classList.remove("--hidden")
+            this.#toggleElement.classList.remove("font--color-main")
         }
     }
 

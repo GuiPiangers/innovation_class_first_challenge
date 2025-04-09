@@ -26,8 +26,8 @@
     color: var(--main_color)
 }
 
-.nav-item:hover svg *{
-    stroke: var(--main_color)
+.nav-item svg *{
+    stroke: currentColor
 }
 
 .nav-all-category {
@@ -152,7 +152,7 @@ scrollbar-color: #c1c1c1 transparent;
     fill: currentColor
 }
 
-.menu__list li:hover {
+.menu__list__item:hover {
     color: var(--main_color);
 }
 
