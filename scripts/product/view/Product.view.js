@@ -3,53 +3,62 @@
 const productButtons = Array.from(document.querySelectorAll('[data-card="button-container"]'))
 
 /**
-* @typedef {Object} ProductCardConstructor
-    * @property {()=> void} decreaseQuantity
-    * @property {()=> void} increaseQuantity
-    * @property {(number)=> void} getQuantity
+* @typedef {Object} ProductCardInitialize
+    * @property {(string)=> void} decreaseQuantity
+    * @property {(string)=> void} increaseQuantity
+    * @property {(string)=> number} getQuantity
 */
 
 class ProductCardView {
     /**  @type {HTMLButtonElement | null} */
     #quantityElement = null
+    /**  @type {(id: string)=> number} */
     getQuantity
+    /**  @type {(id: string)=> void} */
     increaseQuantity
+    /**  @type {(id: string)=> void} */
     decreaseQuantity
 
-    /** @param {ProductCardConstructor} */
-    constructor({ decreaseQuantity, increaseQuantity, getQuantity}){
+    /** 
+     * @param {HTMLButtonElement} button 
+     * @param {string} id  
+    */
+    #renderButton(button, id){
+        return ()=> {
+            const quantity = this.getQuantity(id)
+            if(quantity > 0) {
+                this.#renderBuyButton(button, id)
+            }
+            else {
+                this.#renderDefaultButton(button, id)
+            }
+        }
+    }
+    
+    /** @param {ProductCardInitialize} */
+    initialize({ decreaseQuantity, increaseQuantity, getQuantity}){
         this.decreaseQuantity = decreaseQuantity
         this.increaseQuantity = increaseQuantity
         this.getQuantity = getQuantity
     }
 
-    /** * @param {HTMLButtonElement} button */
-    #renderButton(button){
-        return ()=> {
-            const quantity = this.getQuantity()
-            if(quantity > 0) {
-                this.#changeButtonToBuyButton(button)
-            }
-            else {
-                this.#changeButtonToDefaultButton(button)
-            }
-        }
-    }
-
 
     initializeListeners(){
-        productButtons.forEach((buttonContainer) => {
+        productButtons.forEach((buttonContainer, index) => {
             const button = buttonContainer.querySelector('[data-card="button"]')
-            button.addEventListener("click", this.#renderButton(buttonContainer))
+            button.addEventListener("click", this.#renderButton(buttonContainer, `card-button-${index}`))
         })
     }
 
-    /**  @param {HTMLButtonElement} button*/
-    #changeButtonToBuyButton(button){
+    /** 
+     * @param {HTMLButtonElement} button 
+     * @param {string} id  
+    */
+    #renderBuyButton(button, id){
         button.innerHTML = `
             <div data-card="button" class="button button--small card__button--buy">
                 <button data-card="butto-minus" class="font--extra-large">-</button>
-                <span data-card="quantity"> ${ this.getQuantity()} </span>
+                <span data-card="quantity"> ${ this.getQuantity(id)} </span>
                 <button data-card="butto-plus" class="font--extra-large">+</button>
             </div>
         `
@@ -58,17 +67,20 @@ class ProductCardView {
         
         
         minusButton.addEventListener("click", ()=>{
-            this.decreaseQuantity()
-            this.#renderButton(button)()
+            this.decreaseQuantity(id)
+            this.#renderButton(button, id)()
         })
         plusButton.addEventListener("click", ()=>{
-            this.increaseQuantity()
-            this.#renderButton(button)()
+            this.increaseQuantity(id)
+            this.#renderButton(button, id)()
         })
     }
     
-    /** @param {HTMLButtonElement} buttonContainer */    
-    #changeButtonToDefaultButton(buttonContainer){
+    /** 
+     * @param {HTMLButtonElement} button 
+     * @param {string} id  
+    */
+    #renderDefaultButton(buttonContainer, id){
         const buttonHTML = `
         <button data-card="button" class="button button--small">
             Comprar
@@ -76,10 +88,9 @@ class ProductCardView {
 
         buttonContainer.innerHTML = buttonHTML
         const button = buttonContainer.querySelector('[data-card="button"]')
-        console.log(button)
         button.addEventListener("click", ()=> {
-            this.increaseQuantity()
-            this.#renderButton(buttonContainer)
+            this.increaseQuantity(id)
+            this.#renderButton(buttonContainer, id)
         })
     }
 }
@@ -89,7 +100,8 @@ const decreaseQuantity = () => {quantity -= 1}
 const increaseQuantity = () => {quantity += 1}
 const getQuantity = () => quantity
 
-const view = new ProductCardView({decreaseQuantity, getQuantity, increaseQuantity})
+const view = new ProductCardView()
+view.initialize({decreaseQuantity, getQuantity, increaseQuantity})
 
 view.initializeListeners()
 
