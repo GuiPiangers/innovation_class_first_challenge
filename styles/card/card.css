@@ -56,6 +56,10 @@
     border-radius: 4px;
 }
 
+.card__button-container .button {
+    width: 100%;
+}
+
 .card__button--buy {
     border: 1px solid #0EAA38 !important;
     display: flex;
