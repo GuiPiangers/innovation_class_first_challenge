@@ -1,24 +1,25 @@
-import { ProductCard } from "../model/Product"
-import { ProductCardRepository } from "../model/Product.repository"
-import {ProductCardView} from "../view/Product.view"
+import { ProductCard } from "../model/Product.js"
+import {ProductsView} from "../view/Product.view.js"
+/** @type {Array<HTMLButtonElement>} button */
+const productButtons = Array.from(document.querySelectorAll('[data-card="button-container"]'))
 
 class ProductCardController {
     /** @type {ProductCard} */
     #productCardModel
-    /** @type {ProductCardView} */
+    /** @type {ProductsView} */
     #productCardView
 
     /**
      * 
      * @param {ProductCard} productCardModel 
-     * @param {ProductCardView} productCardView 
+     * @param {ProductsView} productCardView 
      */
     constructor(productCardModel, productCardView){
         this.#productCardModel = productCardModel
         this.#productCardView = productCardView
         this.#productCardView.initialize({
-            getQuantity: this.getQuantity, 
-            onDecreaseQuantity: this.removeProduct, 
+            getQuantity: (id) => this.getQuantity(id), 
+            onDecreaseQuantity: (id) => this.removeProduct(id), 
             onIncreaseQuantity: (id) => {
                 const product = {
                     id,
@@ -30,6 +31,8 @@ class ProductCardController {
                 this.addProduct(product)
             }
         })
+
+        this.#productCardView.initializeListeners()
     }
 
     /** @param {import("../model/Product").ProductDTO} product */
@@ -39,11 +42,7 @@ class ProductCardController {
 
     /** @param {string} id */
     removeProduct(id){
-        return this.#productCardModel.removeProduct(id)
-    }
-
-    getPrice(){
-        return this.#productCardModel.getPrice()
+        return this.#productCardModel.removeProduct(id, 1)
     }
 
     /** @param {string} id */
@@ -52,9 +51,8 @@ class ProductCardController {
     }
 }
 
-const productCardRepository = new ProductCardRepository()
-const productCardModel = new ProductCard(productCardRepository)
-const productCardView = new ProductCardView()
+const productCardModel = new ProductCard()
+const productCardView = new ProductsView({productButtons})
 const productCardController = new ProductCardController(productCardModel, productCardView)
 
 export { productCardController }

@@ -1,6 +1,3 @@
-/** @type {Array<HTMLButtonElement>} button */
-const productButtons = Array.from(document.querySelectorAll('[data-card="button-container"]'))
-
 /**
 * @typedef {Object} ProductCardInitialize
     * @property {(id: string)=> void} onDecreaseQuantity
@@ -8,49 +5,58 @@ const productButtons = Array.from(document.querySelectorAll('[data-card="button-
     * @property {(id: string)=> number} getQuantity
 */
 
-export class ProductCardView {
+export class ProductsView {
     /**  @type {(id: string)=> number} */
-    getQuantity
+    #getQuantity
     /**  @type {(button: HTMLButtonElement, id: string)=> void} */
-    onIncreaseQuantity
+    #onIncreaseQuantity
     /**  @type {(button: HTMLButtonElement, id: string)=> void} */
-    onDecreaseQuantity
+    #onDecreaseQuantity
+    /**  @type {Array<HTMLButtonElement>}  */
+    #productButtons
+
+    /** @param {{productButtons: Array<HTMLButtonElement>}} param */
+    constructor({productButtons}){
+        this.#productButtons = productButtons
+    }
 
     /** 
      * @param {HTMLButtonElement} button 
      * @param {string} id  
     */
     #renderButton(button, id){
-            const quantity = this.getQuantity(id)
+            const quantity = this.#getQuantity(id)
             if(quantity > 0) {
                 this.#renderBuyButton(button, id)
             }
             else {
                 this.#renderDefaultButton(button, id)
             }
-            console.log(cardQuantity)
     }
     
-    /** @param {ProductCardInitialize} */
+    /** @param {ProductCardInitialize} params*/
     initialize({ onDecreaseQuantity, onIncreaseQuantity, getQuantity}){
-        this.onDecreaseQuantity = (button, id) => {
+        this.#onDecreaseQuantity = (button, id) => {
             onDecreaseQuantity(id)
             this.#renderButton(button, id)
         }
-        this.onIncreaseQuantity = (button, id) => {
+        this.#onIncreaseQuantity = (button, id) => {
             onIncreaseQuantity(id)
             this.#renderButton(button, id)
         }
-        this.getQuantity = getQuantity
+        this.#getQuantity = (id) => {
+            const qtd = getQuantity(id)
+            return qtd
+        }
     }
 
 
     initializeListeners(){
-        productButtons.forEach((buttonContainer, index) => {
+        this.#productButtons.forEach((buttonContainer, index) => {
             const button = buttonContainer.querySelector('[data-card="button"]')
             button.addEventListener("click", ()=>{
                 const id = `card-button-${index}`
-                this.onIncreaseQuantity(buttonContainer, id)
+                this.#onIncreaseQuantity(buttonContainer, id)
             })
         })
     }
@@ -63,7 +69,7 @@ export class ProductCardView {
         buttonContainer.innerHTML = `
             <div data-card="button" class="button button--small card__button--buy">
                 <button data-card="button-minus" class="font--extra-large card__button__operation">-</button>
-                <span data-card="quantity"> ${ this.getQuantity(id)} </span>
+                <span data-card="quantity"> ${ this.#getQuantity(id)} </span>
                 <button data-card="button-plus" class="font--extra-large card__button__operation">+</button>
             </div>
         `
@@ -72,10 +78,10 @@ export class ProductCardView {
         
         
         minusButton.addEventListener("click", ()=>{
-            this.onDecreaseQuantity(buttonContainer, id)
+            this.#onDecreaseQuantity(buttonContainer, id)
         })
         plusButton.addEventListener("click", ()=>{
-            this.onIncreaseQuantity(buttonContainer, id)
+            this.#onIncreaseQuantity(buttonContainer, id)
         })
     }
     
@@ -92,24 +98,23 @@ export class ProductCardView {
         buttonContainer.innerHTML = buttonHTML
         const button = buttonContainer.querySelector('[data-card="button"]')
         button.addEventListener("click", ()=> {
-            this.onIncreaseQuantity(buttonContainer, id)
+            this.#onIncreaseQuantity(buttonContainer, id)
 
         })
     }
 }
 
-let cardQuantity = {}
-const onDecreaseQuantity = (id) => {
-    cardQuantity[id] = cardQuantity[id] !== undefined ? cardQuantity[id] - 1 : 0
+class ShopCardView {
+    /** @type {HTMLButtonElement} */
+    #shopCardButton
+
+    /** @param {{shopCardButton: HTMLButtonElement}} param */
+    constructor({shopCardButton}){
+        this.#shopCardButton = shopCardButton
+    }
+    /** @param {number} quantity  */
+    updateCardProduct(quantity){
+        this.#shopCardButton.textContent = quantity.toString()
+    }
 }
-
-const onIncreaseQuantity = (id) => {
-    cardQuantity[id] = cardQuantity[id] !== undefined ? cardQuantity[id] + 1 : 1
-}
-const getQuantity = (id) => cardQuantity[id] ?? 1
-
-const view = new ProductCardView()
-view.initialize({onDecreaseQuantity, getQuantity, onIncreaseQuantity})
-
-view.initializeListeners()
 
