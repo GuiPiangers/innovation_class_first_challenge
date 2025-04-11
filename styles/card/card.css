@@ -68,4 +68,15 @@
     background-color: transparent !important;
     color: #303030 !important;
     max-height: 40px;
+    cursor: default !important;
+}
+
+.card__button__operation {
+    height: 32px;
+    width: 32px;
+    border-radius: 4px;
+}
+
+.card__button__operation:hover {
+    background-color: #eeeeee;
 }
