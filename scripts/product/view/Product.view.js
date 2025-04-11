@@ -48,10 +48,12 @@ export class ProductsView {
             const qtd = getQuantity(id)
             return qtd
         }
+
+        this.#initializeListeners()
     }
 
 
-    initializeListeners(){
+    #initializeListeners(){
         this.#productButtons.forEach((buttonContainer, index) => {
             const button = buttonContainer.querySelector('[data-card="button"]')
             button.addEventListener("click", ()=>{
@@ -104,17 +106,17 @@ export class ProductsView {
     }
 }
 
-class ShopCardView {
-    /** @type {HTMLButtonElement} */
-    #shopCardButton
+export class ShopCardView {
+    /** @type {HTMLDivElement} */
+    #shopCardQuantity
 
-    /** @param {{shopCardButton: HTMLButtonElement}} param */
-    constructor({shopCardButton}){
-        this.#shopCardButton = shopCardButton
+    /** @param {{shopCardQuantity: HTMLDivElement}} param */
+    constructor({shopCardQuantity}){
+        this.#shopCardQuantity = shopCardQuantity
     }
-    /** @param {number} quantity  */
+    /** @param {string} quantity  */
     updateCardProduct(quantity){
-        this.#shopCardButton.textContent = quantity.toString()
+        this.#shopCardQuantity.textContent = quantity
     }
 }
 

@@ -1,7 +1,9 @@
 import { ProductCard } from "../model/Product.js"
-import {ProductsView} from "../view/Product.view.js"
-/** @type {Array<HTMLButtonElement>} button */
+import {ProductsView, ShopCardView} from "../view/Product.view.js"
+/** @type {Array<HTMLButtonElement>} */
 const productButtons = Array.from(document.querySelectorAll('[data-card="button-container"]'))
+/** @type {HTMLDivElement} */
+const shopCardQuantity = document.querySelector('[data-product="shop-card"]')
 
 class ProductCardController {
     /** @type {ProductCard} */
@@ -13,13 +15,17 @@ class ProductCardController {
      * 
      * @param {ProductCard} productCardModel 
      * @param {ProductsView} productCardView 
+     * @param {ShopCardView} shopCardView 
      */
-    constructor(productCardModel, productCardView){
+    constructor(productCardModel, productCardView, shopCardView){
         this.#productCardModel = productCardModel
         this.#productCardView = productCardView
         this.#productCardView.initialize({
-            getQuantity: (id) => this.getQuantity(id), 
-            onDecreaseQuantity: (id) => this.removeProduct(id), 
+            getQuantity: (id) => this.#productCardModel.getQuantity(id), 
+            onDecreaseQuantity: (id) => {
+                this.#removeProduct(id)
+                this.#updateShopCard()
+            }, 
             onIncreaseQuantity: (id) => {
                 const product = {
                     id,
@@ -28,31 +34,25 @@ class ProductCardController {
                     quantity: 1
                 }
 
-                this.addProduct(product)
-            }
+                this.#productCardModel.addProduct(product)
+                this.#updateShopCard()            }
         })
-
-        this.#productCardView.initializeListeners()
     }
 
-    /** @param {import("../model/Product").ProductDTO} product */
-    addProduct(product){
-        return this.#productCardModel.addProduct(product)
-    }
+        #updateShopCard() {
+            const totalQuantity = this.#productCardModel.getQuantityAll()
+            shopCardView.updateCardProduct(totalQuantity < 100 ? totalQuantity.toString() : "+99")
+        }
 
     /** @param {string} id */
-    removeProduct(id){
+    #removeProduct(id){
         return this.#productCardModel.removeProduct(id, 1)
-    }
-
-    /** @param {string} id */
-    getQuantity(id){
-        return this.#productCardModel.getQuantity(id)
     }
 }
 
 const productCardModel = new ProductCard()
 const productCardView = new ProductsView({productButtons})
-const productCardController = new ProductCardController(productCardModel, productCardView)
+const shopCardView = new ShopCardView({ shopCardQuantity })
+const productCardController = new ProductCardController(productCardModel, productCardView, shopCardView)
 
 export { productCardController }
