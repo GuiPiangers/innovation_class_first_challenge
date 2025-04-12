@@ -35,7 +35,6 @@
 }
 
 
-
 .popover {
     position: absolute;
     top: calc(100% + 16px);
@@ -43,13 +42,14 @@
     width: 100%;
     background: #fff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+    z-index: 20;
     display: flex;
     gap: 20px;
     border-radius: 4px;
 
     max-height: 329px;
     overflow: hidden;
+
 }
 
 .popover > *{
@@ -159,6 +159,12 @@ scrollbar-color: #c1c1c1 transparent;
 .menu__list__item.--selected {
     font-weight: 700;
     color: var(--main_color);
+}
+
+.nav-all-category svg {
+    height: 14px;
+    width: 14px;
+    flex-shrink: 0;
 }
 
 .menu__image {

@@ -32,9 +32,17 @@
 
         <div class="box-container">
            <div class="box header-middle">
+                <button class="nav-item nav-all-category header__menu-trigger--mobile" data-toggle="mobile-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <line x1="1" y1="12.4998" x2="22.7185" y2="12.4998" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="23.1921" x2="22.7185" y2="23.1921" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="1.80762" x2="22.7185" y2="1.80762" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+
                <div class="header__logo-and-search-container">
-                   <img src="./public/images/logo.svg"></img>
-                   <div class="input__container search__input-container">
+                   <img class="header__logo" src="./public/images/logo.svg"></img>
+                   <div data-search="container" class="input__container search__input-container header__search--desktop">
                         <input class="input" type="text" placeholder="Digite aqui o que você procura" data-search="input">
                         <button data-search="button"><img src="./public/images/search.svg" alt="Pesquisar"></button>
 
@@ -55,154 +63,169 @@
            </div>
         </div>
 
-        <div class="box-container">        
-            <ul class="box nav-list" data-menu="popover_container">
-                <li>
-                    <button class="nav-item nav-all-category" id="main_menu_toggle_bt" data-toggle="main_menu">
-                        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="1" y1="6" x2="13" y2="6" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="1" y1="11" x2="13" y2="11" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="1" y1="1" x2="13" y2="1" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span>Todas as categorias</span>
-                    </button>
-                </li>
-                <div class="popover --hidden" id="main_menu">
-                    <div class="col departamento menu__list__departments">
-                        <ul class="menu__list">
-                            <li>
-                                <button id="department1" class="menu__list__item --selected">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department2" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department3" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department4" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department5" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department6" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department7" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department8" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department9" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="department10" class="menu__list__item">
-                                    <span>Departamento</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
-                                        <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
-                                    </svg>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="menu__categories">
-                        <div class="col menu__category">
-                            <h4 class="menu__title">Categoria</h4>
-                            <ul class="menu__list">
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                            </ul>
-                        </div>
-                        <div class="col menu__category">
-                            <h4 class="menu__title">Categoria</h4>
-                            <ul class="menu__list">
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                            </ul>
-                        </div>
-                        <div class="col menu__category">
-                            <h4 class="menu__title">Categoria</h4>
-                            <ul class="menu__list">
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                                <li>Categoria</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col destaque">
-                        <div class="menu__image">
-                            <p>Confira os <br>Produtos<strong><br>Que <br/>acabaram<br/>De chegar</strong></p>
-                            <button>VER TODOS</button>
-                        </div>
-                    </div>
+        <div class="box-container header__search--mobile">
+            <div class="box">
+                <div data-search="container" class="input__container search__input-container">
+                    <input class="input" type="text" placeholder="Digite aqui o que você procura" data-search="input">
+                    <button data-search="button"><img src="./public/images/search.svg" alt="Pesquisar"></button>
+                    
+                    <div class="search__answer-container --hidden" data-search="answer">Sua resposta é</div>
                 </div>
-        </ul>
+            </div>
+        </div>
+        <div class="box-container header__menu">
+            <ul class="box nav-list" data-menu="popover_container">
+                    <li>
+                        <button class="nav-item nav-all-category" id="main_menu_toggle_bt" data-toggle="main_menu">
+                            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="1" y1="6" x2="13" y2="6" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="1" y1="11" x2="13" y2="11" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="1" y1="1" x2="13" y2="1" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Todas as categorias</span>
+                        </button>
+                    </li>
+                    <div class="popover --hidden" id="main_menu">
+                            <div class="col departamento menu__list__departments">
+                                <ul class="menu__list">
+                                    <li>
+                                        <button id="department1" class="menu__list__item --selected">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department2" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department3" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department4" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department5" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department6" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department7" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department8" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department9" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="department10" class="menu__list__item">
+                                            <span>Departamento</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9" fill="none">
+                                                <path d="M4.45948 5.03932L1.27979 8.27623C0.987123 8.57459 0.512778 8.57459 0.219501 8.27623C-0.0731669 7.97892 -0.0731669 7.49559 0.219501 7.1978L2.86978 4.49986L0.219501 1.80232C-0.0731669 1.50453 -0.0731669 1.02185 0.219501 0.723405C0.512778 0.425531 0.987123 0.425531 1.27979 0.723405L4.45948 3.96032C4.60614 4.10958 4.67943 4.3048 4.67943 4.50002C4.67943 4.69524 4.60614 4.89038 4.45948 5.03932Z" fill="#303030"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu__categories">
+                                <div class="col menu__category">
+                                    <h4 class="menu__title">Categoria</h4>
+                                    <ul class="menu__list">
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="col menu__category">
+                                    <h4 class="menu__title">Categoria</h4>
+                                    <ul class="menu__list">
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="col menu__category">
+                                    <h4 class="menu__title">Categoria</h4>
+                                    <ul class="menu__list">
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col destaque">
+                                <div class="menu__image">
+                                    <p>Confira os <br>Produtos<strong><br>Que <br/>acabaram<br/>De chegar</strong></p>
+                                    <button>VER TODOS</button>
+                                </div>
+                            </div>
+                    </div>
+            </ul>
+        </div>
 
-    </div>
+        <div data-menu="mobile" class="box-container">
+            <div class="box menu__mobile">
+
+            </div>
+        </div>
 
     </header>
 
@@ -584,10 +607,13 @@
     <footer class="footer">
         <section class="footer__links-container box-container" aria-label="rodapé">
             <div class="footer__links-container__content box--small">
-                <div>
-                    <img src="public/images/logo.svg" alt="Logo Avanti" class="footer__logo">
+                <div class="footer__logo_media-container">
+                    <img class="footer__logo" src="public/images/logo.svg" alt="Logo Avanti">
                     <div class="footer__medias">
-
+                        <img class="footer__media__img" src="public/images/instagram.png" alt="instagram">
+                        <img class="footer__media__img" src="public/images/facebook.png" alt="facebook">
+                        <img class="footer__media__img" src="public/images/youtube.png" alt="youtube">
+                        <img class="footer__media__img" src="public/images/tiktok.png" alt="tiktok">
                     </div> 
                 </div>
 
@@ -624,13 +650,28 @@
                     </div>
                 </div>
             </div>
-            <div class="footer__credit-cards"></div>
+            <div class="footer__credit-cards">
+                <img class="footer__credit-card__img" src="public/images/pay1.png">
+                <img class="footer__credit-card__img" src="public/images/pay2.png">
+                <img class="footer__credit-card__img" src="public/images/pay3.png">
+                <img class="footer__credit-card__img" src="public/images/pay4.png">
+                <img class="footer__credit-card__img" src="public/images/pay5.png">
+                <img class="footer__credit-card__img" src="public/images/pay6.png">
+                <img class="footer__credit-card__img" src="public/images/pay7.png">
+                <img class="footer__credit-card__img" src="public/images/pay8.png">
+                <img class="footer__credit-card__img" src="public/images/pay9.png">
+            </div>
         </section>
 
         <div class="box-container">
             <p class="text--center box font--extra-small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
         </div>
-        <div class="text--center">
+        <div class="footer__technologies">
+            <img class="footer__technology__img" src="public/images/lestEncript.png" alt="lestEncript">
+            <img class="footer__technology__img" src="public/images/vtex-certified.png" alt="lestEncript">
+            <div class="footer__technology__separation"></div>
+            <img class="footer__technology__img" src="public/images/logo.svg" alt="lestEncript">
+            <img class="footer__technology__img" src="public/images/vtex.png" alt="lestEncript">
         </div>
     </footer>
 </body>
