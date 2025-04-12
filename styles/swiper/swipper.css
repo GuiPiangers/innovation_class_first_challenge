@@ -57,3 +57,14 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 480px) {
+  .swiper{
+    padding: 0px 8px;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+}

@@ -1,5 +1,7 @@
 .card {
-    width: 238px;
+    max-width: 238px;
+    min-width: 174px;
+    width: 100%;
     padding: 6px 8px;
     border-radius: 10px;
 
@@ -26,7 +28,7 @@
 
 .card__image {
     height: 222px;
-    width: 222px;
+    width: auto;
     border-radius: 8px;
     object-fit: cover;
 }

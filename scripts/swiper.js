@@ -1,8 +1,7 @@
 // @ts-nocheck
 const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
-    slidesPerView: 5,
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 10,
     pagination: {
       el: '.swiper-pagination',
@@ -14,13 +13,24 @@ const swiper = new Swiper('.swiper', {
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-      768: {
+      380: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        
+      },
+      660: {
         slidesPerView: 3,
+        spaceBetween: 17,
       },
       1024: {
+        slidesPerView: 4,
+        spaceBetween: 17,
+      },
+      1280: {
         slidesPerView: 5,
         spaceBetween: 17,
       }
+
     }
 });
 
