@@ -1,5 +1,6 @@
 .search__input-container {
     position: relative;
+    max-width: 594px;
 }
 
 .search__answer-container {

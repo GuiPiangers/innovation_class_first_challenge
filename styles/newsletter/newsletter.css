@@ -1,4 +1,4 @@
-.newsletter {
+.newsletter__container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +16,7 @@
     padding: 64px 114px;
     border-radius: 8px;
     background-color: #DEDEDE;
+    align-items: center;
 }
 
 .newsletter__accept-policy{
@@ -24,3 +25,32 @@
     font-weight: 700;
     color: #656565
 }
+
+@media screen and (max-width: 1080px) {
+    .newsletter__form {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .newsletter__accept-policy {
+        white-space: unset;
+        min-width: 100px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .newsletter__form {
+        padding: 38px 16px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter__title {
+        font-size: 16px;
+    }
+    
+    .newsletter__container.box {
+        padding: 14px;
+    }
+
+}
+
