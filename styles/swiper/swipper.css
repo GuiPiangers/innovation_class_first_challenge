@@ -57,6 +57,16 @@
   font-weight: bold;
 }
 
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--main_color);
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  content: url(../../public/images/arrow-hove.svg);
+}
+
 @media screen and (max-width: 480px) {
   .swiper{
     padding: 0px 8px;
