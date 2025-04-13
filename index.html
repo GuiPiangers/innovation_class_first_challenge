@@ -43,6 +43,7 @@
 
                <div class="header__logo-and-search-container">
                    <img class="header__logo" src="./public/images/logo.svg"></img>
+                   
                    <div data-search="container" class="input__container search__input-container header__search--desktop">
                         <input class="input" type="text" placeholder="Digite aqui o que você procura" data-search="input">
                         <button data-search="button"><img src="./public/images/search.svg" alt="Pesquisar"></button>
@@ -222,11 +223,24 @@
             </ul>
         </div>
 
-        <div data-menu="mobile" class="box-container">
-            <div class="box menu__mobile">
-
-            </div>
-        </div>
+        <div class="menu__mobile popover_container">
+            <ul class="nav-list popover" data-menu="mobile">
+                <div class="accordion" id="accordion">
+                    <li class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Institucional</span>
+                            <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
+                        </div>
+                        <div class="accordion-body">
+                            <div>Sobre Nós</div>
+                            <div>Nossas Lojas</div>
+                            <div>Privacidade e Segurança</div>
+                            <div>Termos e Condições</div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>   
 
     </header>
 
@@ -957,7 +971,7 @@
                     <div>Ouvidoria</div>
                   </div>
                 </div>
-              </div>
+            </div>
 
             <div class="footer__credit-cards">
                 <img class="footer__credit-card__img" src="public/images/pay1.png">

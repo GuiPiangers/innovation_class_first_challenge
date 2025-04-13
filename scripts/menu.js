@@ -121,12 +121,29 @@ const defaultMenuCategories = {
     ],
 }
 
+const departmentStruct = {
+    department1: defaultMenuCategories,
+    department2: defaultMenuCategories,
+    department3: defaultMenuCategories,
+    department4: defaultMenuCategories,
+    department5: defaultMenuCategories,
+    department6: defaultMenuCategories,
+    department7: defaultMenuCategories,
+    department8: defaultMenuCategories,
+    department9: defaultMenuCategories,
+    department10: defaultMenuCategories
+}
+
 
 class Menu {
     #popover = null
     #toggleElement = null
     isOpen = false
 
+    /**
+     * @param {Element} popover 
+     * @param {Element} toggleElements
+    */
     constructor(popover, toggleElements) {
         this.#popover = popover
         this.#toggleElement = toggleElements
@@ -197,26 +214,15 @@ class Menu {
 }
 
 class MainMenu extends Menu {
-    #departmentsStruct = {
-        department1: defaultMenuCategories,
-        department2: defaultMenuCategories,
-        department3: defaultMenuCategories,
-        department4: defaultMenuCategories,
-        department5: defaultMenuCategories,
-        department6: defaultMenuCategories,
-        department7: defaultMenuCategories,
-        department8: defaultMenuCategories,
-        department9: defaultMenuCategories,
-        department10: defaultMenuCategories
-    }
-
+    #departmentsStruct
     #menuCategoriesElement = null
     selectedDepartment = "department1"
     isOpen = false
     #menuItensElements = null
 
-    constructor(popover, toggleElements) {
+    constructor(popover, toggleElements, departmentStruct) {
         super(popover, toggleElements)
+        this.#departmentsStruct = departmentStruct
         this.#menuCategoriesElement = popover.querySelector(".menu__categories")
         this.#renderCategories()
         
@@ -304,7 +310,58 @@ class DepartmentMenu extends Menu {
     }
 }
 
-new MainMenu(mainMenuElement, mainMenuToggleButton)
+class MobileMenu extends Menu {
+
+    /** @type {Element} */
+    #menuContainer
+    /**
+     * @param {Element} popover 
+     * @param {Element} toggleElements
+    */
+    constructor(popover, toggleElements){
+        super(popover, toggleElements)
+        this.#menuContainer = popover.querySelector("#accordion")
+    }
+
+    /** @param {{ [key: string]: { [key: string]: { href: string; name: string; } []}}} menuStruct*/
+    renderPopover(menuStruct){
+        const menuHTML = Object.entries(menuStruct).reduce((acc, [departmentName, department]) => {
+            const categories = Object.entries(department).reduce((acc, [subCategoryName, subcategory]) => {
+                const itens = subcategory.reduce((acc, category) => {
+                    return acc + `<a href="${category.href}" class="menu__category__link">${category.name}</a>`
+                }, "")
+                
+                const subCategoryHTML = `
+                    <h4 class="menu__title">${"Categoria"}</h4>
+                    <ul class="menu__list">
+                        ${itens}
+                    </ul>
+                `
+
+                return acc + subCategoryHTML
+                
+            }, "")
+
+            const departmentHTML = `
+                <li class="accordion-item">
+                    <div class="accordion-header">
+                        <span>${"Departamento"}</span>
+                        <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
+                    </div>
+                    <div class="accordion-body">
+                        ${categories}
+                    </div>
+                </li>
+            `
+
+            return acc + departmentHTML
+        }, "")
+
+        this.#menuContainer.innerHTML = menuHTML
+    }
+}
+
+new MainMenu(mainMenuElement, mainMenuToggleButton, departmentStruct)
 
 departmentToggleMenuButtons.forEach((toggleButton, index) => {
         const departmentMenuElements = Array.from(document.querySelectorAll(`[data-menu="department_popover"]`))
@@ -312,3 +369,9 @@ departmentToggleMenuButtons.forEach((toggleButton, index) => {
     new DepartmentMenu(departmentMenuElements[index], toggleButton, defaultMenuCategories)
 })
 
+const mobilePopover = document.querySelector('[data-menu="mobile"]')
+const mobileTrigger = document.querySelector('[data-toggle="mobile-menu"]')
+
+const mobileMenu = new MobileMenu(mobilePopover, mobileTrigger)
+
+mobileMenu.renderPopover(departmentStruct)

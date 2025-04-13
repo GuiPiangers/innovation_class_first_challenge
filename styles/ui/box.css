@@ -52,4 +52,10 @@
     .margin--regular{
         margin: 40px 0px;
     }
+
+    
+    .box, .box--small {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
