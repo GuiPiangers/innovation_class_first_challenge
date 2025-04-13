@@ -332,10 +332,12 @@ class MobileMenu extends Menu {
                 }, "")
                 
                 const subCategoryHTML = `
-                    <h4 class="menu__title">${"Categoria"}</h4>
-                    <ul class="menu__list">
-                        ${itens}
-                    </ul>
+                    <div>
+                        <h4 class="menu__title">${"Categoria"}</h4>
+                        <ul class="menu__list">
+                            ${itens}
+                        </ul>
+                    </div>
                 `
 
                 return acc + subCategoryHTML
@@ -349,7 +351,9 @@ class MobileMenu extends Menu {
                         <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
                     </div>
                     <div class="accordion-body">
-                        ${categories}
+                        <div class="accordion__content">
+                            ${categories}
+                        </div>
                     </div>
                 </li>
             `

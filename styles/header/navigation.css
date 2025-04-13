@@ -229,6 +229,12 @@
 .menu__mobile {
     display: none;
 }
+.menu__mobile .accordion__content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
 
 .menu__mobile .popover {
     height: fit-content;
