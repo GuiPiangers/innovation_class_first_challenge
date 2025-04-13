@@ -16,6 +16,7 @@
 @import "./ui/button.css";
 @import "./footer/footer.css";
 @import "./popover/popover.css";
+@import "./ui/accordion.css";
 
 :root {
     --main_color: #005CFF;

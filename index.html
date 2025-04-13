@@ -21,6 +21,7 @@
     <script src="scripts/menu.js" type="module" ></script>
     <script src="scripts/search.js" type="module" ></script>
     <script src="scripts/product/controller/Product.controller.js" type="module" ></script>
+    <script src="scripts/accordion.js" type="module" ></script>
 
     <title>LP Avanti</title>
 </head>
@@ -617,7 +618,7 @@
                     </div> 
                 </div>
 
-                <div class="footer__links-container__column">
+                <div class="footer__links-container__column footer--desktop-only ">
                     <h4 class="font--small font--bold">Institucional</h4>
 
                     <div class="footer__links">
@@ -628,7 +629,7 @@
                     </div>
                 </div>
 
-                <div class="footer__links-container__column">
+                <div class="footer__links-container__column footer--desktop-only">
                     <h4 class="font--small font--bold">Central de ajuda</h4>
 
                     <div class="footer__links">
@@ -640,7 +641,7 @@
                     </div>
                 </div>
 
-                <div class="footer__links-container__column">
+                <div class="footer__links-container__column footer--desktop-only">
                     <h4 class="font--small font--bold">Atendimento</h4>
 
                     <div class="footer__links">
@@ -652,6 +653,45 @@
                     </div>
                 </div>
             </div>
+
+            <div class="accordion footer--mobile-only" id="accordion">
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <span>Institucional</span>
+                    <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
+                  </div>
+                  <div class="accordion-body">
+                    <div>Sobre Nós</div>
+                    <div>Nossas Lojas</div>
+                    <div>Privacidade e Segurança</div>
+                    <div>Termos e Condições</div>
+                  </div>
+                </div>
+              
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <span>Central de ajuda</span>
+                    <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
+                  </div>
+                  <div class="accordion-body">
+                    <div>Como comprar</div>
+                    <div>Trocas e devoluções</div>
+                    <div>Frete e entrega</div>
+                  </div>
+                </div>
+              
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <span>Atendimento</span>
+                    <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
+                  </div>
+                  <div class="accordion-body">
+                    <div>Fale conosco</div>
+                    <div>Ouvidoria</div>
+                  </div>
+                </div>
+              </div>
+
             <div class="footer__credit-cards">
                 <img class="footer__credit-card__img" src="public/images/pay1.png">
                 <img class="footer__credit-card__img" src="public/images/pay2.png">
@@ -666,7 +706,8 @@
         </section>
 
         <div class="box-container">
-            <p class="text--center box font--extra-small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            <p class="text--center box font--extra-small footer--desktop-only">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            <p class="text--center box font--extra-small footer--mobile-only">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
         </div>
         <div class="footer__technologies">
             <img class="footer__technology__img" src="public/images/lestEncript.png" alt="lestEncript">

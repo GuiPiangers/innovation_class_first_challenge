@@ -4,6 +4,8 @@
     gap: 40px;
     align-items: center;
     width: 100%;
+    padding-bottom: 16px;
+    font-family: "Nunito Sans", "sans-serif";
 }
 
 .footer__links-container__content {
@@ -56,8 +58,8 @@
 
 .footer__media__img {
     object-fit: contain;
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
 }
 
 .footer__credit-cards {
@@ -92,14 +94,33 @@
     background-color: #F5F5F5;
 }
 
+.footer--mobile-only{
+    display: none;
+}
+
 @media screen and (max-width: 840px) {
+    .footer__links-container__content.box--small{
+        padding: 0px;
+    }
     .footer__links-container__content{
         flex-direction: column;
         width: 100%;
-        align-items: center;
+    }
+
+    .footer__links-container {
+        gap: 48px;
+        padding: 40px 0px;
     }
 
     .footer__logo_media-container{
         align-items: center;
+    }
+
+    .footer--desktop-only{
+        display: none !important;
+    }
+
+    .footer--mobile-only{
+        display: block;
     }
 }
