@@ -19,11 +19,12 @@
     align-items: center;
 }
 
-.newsletter__accept-policy{
+.newsletter__accept-policy, .newsletter__accept-policy * {
     white-space: nowrap;
     font-size: 12px;
     font-weight: 700;
-    color: #656565
+    color: #656565;
+    font-family: "Nunito Sans", "sans-serif";
 }
 
 @media screen and (max-width: 1080px) {

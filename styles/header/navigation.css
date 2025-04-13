@@ -19,7 +19,12 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
-    font-size: 14px
+    font-size: 14px;
+    font-family: "Nunito Sans", "sans-serif";
+}
+
+.nav-item * {
+    font-family: "Nunito Sans", "sans-serif";
 }
 
 .nav-item:hover {
@@ -62,21 +67,25 @@
   }
   
 .popover::-webkit-scrollbar-track {
-background: transparent;  
+    background: transparent;  
 }
 
 .popover::-webkit-scrollbar-thumb {
-background-color: #c1c1c1;   
-border-radius: 10px;     
+    background-color: #c1c1c1;   
+    border-radius: 10px;     
 }
 
 .popover::-webkit-scrollbar-thumb:hover {
-background-color: #a8a8a8;   
+    background-color: #a8a8a8;   
 }
 
 .popover {
-scrollbar-width: thin;           
-scrollbar-color: #c1c1c1 transparent;  
+    scrollbar-width: thin;           
+    scrollbar-color: #c1c1c1 transparent;  
+}
+
+.popover * {
+    font-family: "Nunito Sans", "sans-serif";
 }
 
 .popover-department__container{
@@ -140,7 +149,6 @@ scrollbar-color: #c1c1c1 transparent;
     width: 100%;
     cursor: pointer;
     color: currentColor
-
 }
 
 .menu__list li {
@@ -216,9 +224,5 @@ scrollbar-color: #c1c1c1 transparent;
     border-radius: 10px;
     width: fit-content;
     z-index: 2;
-}
-
-.--hidden {
-    display: none;
 }
   

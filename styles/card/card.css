@@ -7,6 +7,11 @@
 
     border: 1px solid #DDDD;
 }
+
+.card * {
+    font-family: "Nunito Sans", "sans-serif";
+}
+
 .card__content {
     position: relative;
     display: flex;
@@ -31,6 +36,10 @@
     width: auto;
     border-radius: 8px;
     object-fit: cover;
+}
+
+.card__title{
+    font-weight: 400;
 }
 
 .card__new-tag {

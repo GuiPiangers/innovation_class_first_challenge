@@ -23,20 +23,33 @@
     max-width: 1320px;  
 }
 
-.box--columns {
-    display: flex;
-    gap: 18PX;
-}
-
 .box--lines {
     display: flex;
     flex-direction: column;
 }
 
-@media screen and (max-width: 1080px) {
-    .box--columns {
-        display: flex;
-        flex-direction: column;
-        gap: 36px
+.margin--small{
+    margin: 56px 0px;
+}
+
+.margin--regular{
+    margin: 64px 0px;
+}
+
+.margin--large{
+    margin: 96px 0px;
+}
+
+.--hidden {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+    .margin--large {
+        margin: 56px 0px;
+    }
+
+    .margin--regular{
+        margin: 40px 0px;
     }
 }
