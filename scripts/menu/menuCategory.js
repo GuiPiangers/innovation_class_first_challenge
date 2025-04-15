@@ -1,5 +1,4 @@
-
-import { menuItem } from "./menuItem"
+import { menuItem } from "./menuItem.js"
 
 /**
  * @param {string} categoryName 
