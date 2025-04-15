@@ -1,6 +1,8 @@
 import { Menu } from "./menu.js"
+import { menuCategory } from "./menuCategory.js"
 
 export class DepartmentMenu extends Menu {
+    /** @type {{ [key: string]: { href: string; name: string; } []}} */
     #categoriesStruct = {}
     #categoryContainerElement = null
 
@@ -19,19 +21,9 @@ export class DepartmentMenu extends Menu {
 
     #renderCategories(){
         const categoriesHTML = `<div class="menu__categories">` + 
-            Object.entries(this.#categoriesStruct).reduce((acc, [key, value])=>{
-                const itens = value.reduce((acc, item) => {
-                    return acc + `<li><a class="menu__category__link" href="${item.href}">${item.name}</a></li>`
-                }, "")
-        
-                return acc + `
-                        <div class="col menu__category">
-                            <h4 class="menu__title">${"Categoria"}</h4>
-                            <ul class="menu__list">
-                                ${itens}
-                            </ul>
-                        </div>
-                `
+            Object.entries(this.#categoriesStruct)
+                .reduce((acc, [categoryName, itens])=>{
+                    return acc + menuCategory(categoryName, itens)
             }, "")
         + `</div>`
 
