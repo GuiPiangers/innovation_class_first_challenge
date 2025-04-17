@@ -16,7 +16,9 @@ Este projeto é o primeiro desafio da Innovation Class. Trata-se de uma landing 
 - **Menus interativos e de fácil edição dos nomes dos links e das categorias/sub-categorias/departamentos (através do JavaScript)**
 - **Pesquisa do site mostrando em uma caixa abaixo o conteúdo pesquisado**
 - **Adição de produtos ao carrinho funcionando, somando todos os produtos e atualizando a quantidade total do carrihno**
-- **Layout responsivo, otimizado para todas as telas**
+- **Carrosseis funcionais, utilizando Swipper JS**
+- **Acessibilidade de navegação utilizando o teclado**
+- **Layout responsivo, otimizado para as príncipais**
 
 ## 📦 Como Clonar e Executar o Projeto
 
