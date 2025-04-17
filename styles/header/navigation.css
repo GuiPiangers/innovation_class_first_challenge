@@ -113,6 +113,11 @@
     padding: 6px 0;
     display: block;
     color: currentColor;
+    transition: ease 200ms;
+}
+
+.menu__category__link:hover{
+    color: var(--main_color);
 }
 
 
@@ -270,6 +275,11 @@
 
     .menu__mobile {
         display: block;
+    }   
+}
+
+@media screen and (max-width: 1040px) {
+    .menu--lg-screen-only{
+        display: none
     }
-    
 }

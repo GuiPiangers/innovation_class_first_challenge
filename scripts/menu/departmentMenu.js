@@ -48,11 +48,14 @@ export function renderDepartmentsMenusAndTriggers(popoverMenuContainer){
             </div>
         </div>`
 
-    const departmentElements = new Array(8).fill(
-        `<li>
-            <button class="nav-item" data-toggle="department">Departamento</button>
-        </li>` + popoverHTML
-    )
+    const departmentElements = new Array(8).fill(0).map((_, index)=>
+        (
+            `<li class="${index > 4 ? "menu--lg-screen-only" : ""}">
+                <button class="nav-item" data-toggle="department">Departamento</button>
+            </li>` + popoverHTML
+        ))
+
+    console.log(departmentElements)
 
     popoverMenuContainer.insertAdjacentHTML("beforeend", departmentElements.join(""))
 }
