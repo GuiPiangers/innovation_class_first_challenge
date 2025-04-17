@@ -35,12 +35,12 @@ export class MobileMenu extends Menu {
             }, "")
 
             const departmentHTML = `
-                <li class="accordion-item">
-                    <div class="accordion-header">
+                <li class="accordion__item">
+                    <button class="accordion__header">
                         <span>${"Departamento"}</span>
                         <img class="accordion__arrow" src="/public/images/accordion-arrow.svg">
-                    </div>
-                    <div class="accordion-body">
+                    </button>
+                    <div class="accordion__body">
                         <div class="accordion__content">
                             ${categories}
                         </div>

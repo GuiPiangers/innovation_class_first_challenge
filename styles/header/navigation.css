@@ -256,11 +256,11 @@
     flex-direction: column;
 }
 
-.menu__mobile .accordion .accordion-item:last-child {
+.menu__mobile .accordion .accordion__item:last-child {
     border-bottom: 0px;
 }
 
-.menu__mobile .accordion-header {
+.menu__mobile .accordion__header {
     padding: 8px 14px;
     font-size: 14px;
 }
