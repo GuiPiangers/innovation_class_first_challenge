@@ -55,7 +55,5 @@ export function renderDepartmentsMenusAndTriggers(popoverMenuContainer){
             </li>` + popoverHTML
         ))
 
-    console.log(departmentElements)
-
     popoverMenuContainer.insertAdjacentHTML("beforeend", departmentElements.join(""))
 }
