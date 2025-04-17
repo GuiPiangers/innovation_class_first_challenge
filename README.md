@@ -10,6 +10,14 @@ Este projeto é o primeiro desafio da Innovation Class. Trata-se de uma landing 
 - **JavaScript (ES6+)**
 - **Swiper JS**
 
+
+## ⚙️ Funcionalidades
+
+- **Menus interativos e de fácil edição dos nomes dos links e das categorias/sub-categorias/departamentos (através do JavaScript)**
+- **Pesquisa do site mostrando em uma caixa abaixo o conteúdo pesquisado**
+- **Adição de produtos ao carrinho funcionando, somando todos os produtos e atualizando a quantidade total do carrihno**
+- **Layout responsivo, otimizado para todas as telas**
+
 ## 📦 Como Clonar e Executar o Projeto
 
 1. **Clone o repositório:**
